@@ -3,15 +3,20 @@ defineProps({
   msg: {
     type: String,
     required: true
+  },
+  username: {
+    type: String,
+    default: 'User'
   }
 })
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="green">{{ msg }} - {{ username }}</h1>
     <h3>
-      You’ve successfully created a project with
+      Welcome to healthy bytes - this will help you to become a more healthy programmer. You’ve
+      successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
