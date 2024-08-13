@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -17,13 +19,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <RouterLink to="/" class="nav-link active" aria-current="page">Home</RouterLink>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <RouterLink class="nav-link" to="/health">My Health</RouterLink>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <RouterLink class="nav-link" to="/about">About</RouterLink>
           </li>
         </ul>
       </div>

@@ -27,11 +27,14 @@ import Toast from 'primevue/toast'
   <Toast />
 
   <HeaderSection />
-  <HeroSection />
+
+  <!-- Hide this if the current page is not the Home page -->
+  <HeroSection v-if="$route.path === '/'" />
+
   <div class="container">
     <div class="row">
       <div class="col-9 main-content">
-        <HomeView />
+        <RouterView />
       </div>
       <div class="col-3 sidebar">
         <button
@@ -46,22 +49,6 @@ import Toast from 'primevue/toast'
     </div>
   </div>
   <FooterSection />
-
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <WelcomeSection msg="You did it!" username="Kent" />
-      <HealthyEatingTips />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
-  <!-- <RouterView /> -->
 </template>
 
 <style scoped></style>
