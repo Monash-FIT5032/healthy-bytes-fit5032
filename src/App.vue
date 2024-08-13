@@ -24,8 +24,16 @@ import HeroSection from './components/HeroSection.vue'
 import Toast from 'primevue/toast'
 import LoginView from './views/LoginView.vue'
 
+/**
+ * The current authentication status of the user.
+ * Resets to false at the start (every time page is reloaded)
+ */
 const isAuthenticated = ref(false)
 
+/**
+ * This function is called when the user logs in or logs out (via the LoginView component using an emit).
+ * @param value
+ */
 const handleAuthentication = (value) => {
   isAuthenticated.value = value
 }
@@ -58,6 +66,8 @@ const handleAuthentication = (value) => {
     </div>
     <FooterSection />
   </div>
+  <!-- If user is not authenticated, then we force them to see the LoginView -->
+  <!-- Note the use of @authenticated to handle child -> parent communication between LoginView nad App.vue components. -->
   <div v-else>
     <LoginView @authenticated="handleAuthentication" />
   </div>

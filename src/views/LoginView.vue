@@ -3,11 +3,20 @@ import { useToast } from 'primevue/usetoast'
 import { useRouter } from 'vue-router'
 import { defineEmits } from 'vue'
 
+/**
+ * The router instance used for redirecting the user to the home page.
+ */
 const router = useRouter()
 const toast = useToast()
 
+/**
+ * Emits an event to the parent component to indicate that the user has been authenticated.
+ */
 const emit = defineEmits(['authenticated'])
 
+/**
+ * Shows an error toast message.
+ */
 const showError = () => {
   toast.add({
     severity: 'error',
@@ -17,9 +26,17 @@ const showError = () => {
   })
 }
 
+/**
+ * Our username and password for this demo.
+ */
 const globalUsername = 'admin@gmail.com'
 const globalPassword = 'password'
 
+/**
+ * Handles the form submission.
+ * @param {Event} event The form submission event.
+ * If the username and password are correct, the user is authenticated and redirected to the home page.
+ */
 const handleSubmit = (event) => {
   event.preventDefault()
   const email = event.target.email.value
