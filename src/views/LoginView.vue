@@ -8,8 +8,20 @@ import { ref } from 'vue'
  * Firebase imports
  * Import the functions you need from the Firebase SDKs you need
  */
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  connectAuthEmulator,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from 'firebase/auth'
 const auth = getAuth()
+if (import.meta.env.MODE === 'development') {
+  connectAuthEmulator(auth, 'http://localhost:9099')
+  console.log('Auth emulator connected')
+} else {
+  console.log(import.meta.env.MODE)
+  console.log('Auth emulator not connected')
+}
 const userEmail = ref('')
 const userPassword = ref('')
 
@@ -65,8 +77,10 @@ const handleSubmit = (event) => {
   event.preventDefault()
 
   if (isLoginMode.value) {
+    // Login box is visible
     firebaseLoginuser(event)
   } else {
+    // Register box is visible
     firebaseRegisteruser(event)
   }
 }
