@@ -1,14 +1,14 @@
 <script setup>
 import { useToast } from 'primevue/usetoast'
 import { useRouter } from 'vue-router'
-import { defineEmits, onMounted } from 'vue'
+import { defineEmits } from 'vue'
 import { ref } from 'vue'
 
 /**
  * Firebase imports
  * Import the functions you need from the Firebase SDKs you need
  */
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 const auth = getAuth()
 const userEmail = ref('')
 const userPassword = ref('')
@@ -39,18 +39,6 @@ const showError = () => {
 }
 
 /**
- * Shows an error toast message.
- */
-const showMyError = (msg) => {
-  toast.add({
-    severity: 'error',
-    summary: msg,
-    detail: 'Try again pls.',
-    life: 3000
-  })
-}
-
-/**
  * Our username and password for this demo.
  */
 const globalUsername = 'admin@gmail.com'
@@ -65,7 +53,17 @@ const handleSubmit = (event) => {
   event.preventDefault()
 
   if (isLoginMode.value) {
-    firebaseLoginuser(event)
+    const email = event.target.email.value
+    const password = event.target.password.value
+
+    if (email === globalUsername && password === globalPassword) {
+      console.log('Login successful')
+      emit('authenticated', true)
+      router.push('/')
+    } else {
+      console.log('Login failed')
+      showError()
+    }
   } else {
     firebaseRegisteruser(event)
   }
@@ -73,30 +71,6 @@ const handleSubmit = (event) => {
 
 const toggleLoginMode = () => {
   isLoginMode.value = !isLoginMode.value
-}
-
-const firebaseLoginuser = (event) => {
-  event.preventDefault()
-  userEmail.value = event.target.email.value
-  userPassword.value = event.target.password.value
-  signInWithEmailAndPassword(auth, userEmail.value, userPassword.value)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user
-      console.log('User login success:', user)
-
-      localStorage.setItem('isLoggedIn', true)
-      localStorage.setItem('userEmail', userEmail.value)
-
-      emit('authenticated', true)
-    })
-    .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.log(errorCode, errorMessage)
-      showMyError(errorMessage)
-      console.log(userEmail.value, userPassword.value)
-    })
 }
 
 const firebaseRegisteruser = (event) => {
@@ -108,10 +82,6 @@ const firebaseRegisteruser = (event) => {
       // Signed in
       const user = userCredential.user
       console.log('User registration success:', user)
-
-      localStorage.setItem('isLoggedIn', true)
-      localStorage.setItem('userEmail', userEmail.value)
-
       emit('authenticated', true)
     })
     .catch((error) => {
@@ -121,12 +91,6 @@ const firebaseRegisteruser = (event) => {
       console.log(userEmail.value, userPassword.value)
     })
 }
-
-onMounted(() => {
-  if (localStorage.getItem('isLoggedIn')) {
-    emit('authenticated', true)
-  }
-})
 </script>
 
 <template>

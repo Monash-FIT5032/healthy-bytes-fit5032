@@ -1,5 +1,18 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { defineEmits } from 'vue'
+import router from '@/router'
+
+const emit = defineEmits(['authenticated'])
+
+const logMeOut = () => {
+  console.log('Logging out')
+  localStorage.removeItem('isLoggedIn')
+  localStorage.removeItem('userEmail')
+  emit('authenticated', false)
+  router.push('/')
+  location.reload()
+}
 </script>
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,6 +39,9 @@ import { RouterLink } from 'vue-router'
           </li>
           <li class="nav-item">
             <RouterLink class="nav-link" to="/about">About</RouterLink>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" @click="logMeOut">Logout</a>
           </li>
         </ul>
       </div>
