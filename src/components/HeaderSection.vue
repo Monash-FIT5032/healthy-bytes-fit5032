@@ -11,7 +11,7 @@ const logMeOut = () => {
   localStorage.removeItem('userEmail')
   emit('authenticated', false)
   router.push('/')
-  location.reload()
+  // location.reload()
 }
 </script>
 <template>

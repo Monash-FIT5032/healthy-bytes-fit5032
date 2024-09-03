@@ -12,6 +12,12 @@ import App from './App.vue'
 import router from './router'
 
 import { initializeApp } from 'firebase/app'
+import { getAuth, connectAuthEmulator } from 'firebase/auth'
+
+if (import.meta.env.mode === 'development') {
+  const auth = getAuth()
+  connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
+}
 
 /* code from our Firebase console */
 var firebaseConfig = {
