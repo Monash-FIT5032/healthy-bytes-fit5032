@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-let areTipsVisible = ref(true)
+let areTipsVisible = ref(false)
 
 const myCustomUrl = ref('https://intake24.com/')
 
@@ -17,94 +17,94 @@ const healthTips = ref([
     stage: 'beginner',
     type: 'diet'
   },
-  { id: 3, tip: 'Replace saturated with unsaturated fat', stage: 'beginner', type: 'diet' },
-  { id: 4, tip: 'Enjoy plenty of fruits and vegetables', stage: 'beginner', type: 'diet' },
-  { id: 5, tip: 'Reduce salt and sugar intake', stage: 'beginner', type: 'diet' },
-  { id: 6, tip: 'Eat regularly, control the portion size', stage: 'beginner', type: 'diet' },
-  { id: 7, tip: 'Drink plenty of fluids', stage: 'beginner', type: 'diet' },
-  { id: 8, tip: 'Maintain a healthy body weight', stage: 'beginner', type: 'lifestyle' },
-  { id: 9, tip: 'Get on the move, make it a habit!', stage: 'intermediate', type: 'activity' },
-  {
-    id: 10,
-    tip: 'Start now! And keep changing gradually.',
-    stage: 'intermediate',
-    type: 'lifestyle'
-  },
-  { id: 11, tip: 'Choose whole grains over refined grains', stage: 'intermediate', type: 'diet' },
-  {
-    id: 12,
-    tip: 'Include lean sources of protein in your meals',
-    stage: 'intermediate',
-    type: 'diet'
-  },
-  { id: 13, tip: 'Limit processed and packaged foods', stage: 'intermediate', type: 'diet' },
-  { id: 14, tip: 'Cook meals at home instead of eating out', stage: 'intermediate', type: 'diet' },
-  {
-    id: 15,
-    tip: 'Read food labels and choose healthier options',
-    stage: 'intermediate',
-    type: 'diet'
-  },
-  { id: 16, tip: 'Limit your alcohol consumption', stage: 'intermediate', type: 'lifestyle' },
-  {
-    id: 17,
-    tip: 'Practice mindful eating and listen to your body',
-    stage: 'intermediate',
-    type: 'lifestyle'
-  },
-  {
-    id: 18,
-    tip: 'Avoid skipping meals, especially breakfast',
-    stage: 'intermediate',
-    type: 'diet'
-  },
-  { id: 19, tip: 'Limit your intake of sugary beverages', stage: 'advanced', type: 'diet' },
-  {
-    id: 20,
-    tip: 'Include healthy fats in your diet, such as avocados and nuts',
-    stage: 'advanced',
-    type: 'diet'
-  },
-  {
-    id: 21,
-    tip: 'Try new recipes and experiment with different flavors',
-    stage: 'advanced',
-    type: 'diet'
-  },
-  {
-    id: 22,
-    tip: 'Eat a balanced breakfast to start your day off right',
-    stage: 'advanced',
-    type: 'diet'
-  },
-  { id: 23, tip: 'Limit your intake of processed meats', stage: 'advanced', type: 'diet' },
-  {
-    id: 24,
-    tip: 'Stay hydrated by drinking enough water throughout the day',
-    stage: 'advanced',
-    type: 'diet'
-  },
-  {
-    id: 25,
-    tip: 'Include probiotics in your diet for a healthy gut',
-    stage: 'advanced',
-    type: 'diet'
-  },
-  { id: 26, tip: 'Limit your intake of added sugars', stage: 'advanced', type: 'diet' },
-  { id: 27, tip: 'Practice portion control to avoid overeating', stage: 'advanced', type: 'diet' },
-  {
-    id: 28,
-    tip: 'Include a variety of colorful fruits and vegetables in your meals',
-    stage: 'advanced',
-    type: 'diet'
-  },
-  { id: 29, tip: 'Limit your intake of high-sodium foods', stage: 'advanced', type: 'diet' },
-  {
-    id: 30,
-    tip: 'Stay active and incorporate exercise into your daily routine',
-    stage: 'advanced',
-    type: 'activity'
-  }
+  { id: 3, tip: 'Replace saturated with unsaturated fat', stage: 'beginner', type: 'diet' }
+  // { id: 4, tip: 'Enjoy plenty of fruits and vegetables', stage: 'beginner', type: 'diet' },
+  // { id: 5, tip: 'Reduce salt and sugar intake', stage: 'beginner', type: 'diet' },
+  // { id: 6, tip: 'Eat regularly, control the portion size', stage: 'beginner', type: 'diet' },
+  // { id: 7, tip: 'Drink plenty of fluids', stage: 'beginner', type: 'diet' },
+  // { id: 8, tip: 'Maintain a healthy body weight', stage: 'beginner', type: 'lifestyle' },
+  // { id: 9, tip: 'Get on the move, make it a habit!', stage: 'intermediate', type: 'activity' },
+  // {
+  //   id: 10,
+  //   tip: 'Start now! And keep changing gradually.',
+  //   stage: 'intermediate',
+  //   type: 'lifestyle'
+  // },
+  // { id: 11, tip: 'Choose whole grains over refined grains', stage: 'intermediate', type: 'diet' },
+  // {
+  //   id: 12,
+  //   tip: 'Include lean sources of protein in your meals',
+  //   stage: 'intermediate',
+  //   type: 'diet'
+  // },
+  // { id: 13, tip: 'Limit processed and packaged foods', stage: 'intermediate', type: 'diet' },
+  // { id: 14, tip: 'Cook meals at home instead of eating out', stage: 'intermediate', type: 'diet' },
+  // {
+  //   id: 15,
+  //   tip: 'Read food labels and choose healthier options',
+  //   stage: 'intermediate',
+  //   type: 'diet'
+  // },
+  // { id: 16, tip: 'Limit your alcohol consumption', stage: 'intermediate', type: 'lifestyle' },
+  // {
+  //   id: 17,
+  //   tip: 'Practice mindful eating and listen to your body',
+  //   stage: 'intermediate',
+  //   type: 'lifestyle'
+  // },
+  // {
+  //   id: 18,
+  //   tip: 'Avoid skipping meals, especially breakfast',
+  //   stage: 'intermediate',
+  //   type: 'diet'
+  // },
+  // { id: 19, tip: 'Limit your intake of sugary beverages', stage: 'advanced', type: 'diet' },
+  // {
+  //   id: 20,
+  //   tip: 'Include healthy fats in your diet, such as avocados and nuts',
+  //   stage: 'advanced',
+  //   type: 'diet'
+  // },
+  // {
+  //   id: 21,
+  //   tip: 'Try new recipes and experiment with different flavors',
+  //   stage: 'advanced',
+  //   type: 'diet'
+  // },
+  // {
+  //   id: 22,
+  //   tip: 'Eat a balanced breakfast to start your day off right',
+  //   stage: 'advanced',
+  //   type: 'diet'
+  // },
+  // { id: 23, tip: 'Limit your intake of processed meats', stage: 'advanced', type: 'diet' },
+  // {
+  //   id: 24,
+  //   tip: 'Stay hydrated by drinking enough water throughout the day',
+  //   stage: 'advanced',
+  //   type: 'diet'
+  // },
+  // {
+  //   id: 25,
+  //   tip: 'Include probiotics in your diet for a healthy gut',
+  //   stage: 'advanced',
+  //   type: 'diet'
+  // },
+  // { id: 26, tip: 'Limit your intake of added sugars', stage: 'advanced', type: 'diet' },
+  // { id: 27, tip: 'Practice portion control to avoid overeating', stage: 'advanced', type: 'diet' },
+  // {
+  //   id: 28,
+  //   tip: 'Include a variety of colorful fruits and vegetables in your meals',
+  //   stage: 'advanced',
+  //   type: 'diet'
+  // },
+  // { id: 29, tip: 'Limit your intake of high-sodium foods', stage: 'advanced', type: 'diet' },
+  // {
+  //   id: 30,
+  //   tip: 'Stay active and incorporate exercise into your daily routine',
+  //   stage: 'advanced',
+  //   type: 'activity'
+  // }
 ])
 /**
  * Use v-if to only show the Header if it is a complete beginner!

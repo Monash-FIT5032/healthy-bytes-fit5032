@@ -28,7 +28,7 @@ import LoginView from './views/LoginView.vue'
  * The current authentication status of the user.
  * Resets to false at the start (every time page is reloaded)
  */
-const isAuthenticated = ref(false)
+const isAuthenticated = ref(true)
 
 /**
  * This function is called when the user logs in or logs out (via the LoginView component using an emit).
