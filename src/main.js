@@ -13,10 +13,13 @@ import router from './router'
 
 import { initializeApp } from 'firebase/app'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
+import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore'
 
 if (import.meta.env.mode === 'development') {
   const auth = getAuth()
   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
+  const firestore = getFirestore()
+  connectFirestoreEmulator(firestore, 'localhost', 8080)
 }
 
 /* code from our Firebase console */
